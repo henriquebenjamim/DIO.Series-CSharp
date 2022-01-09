@@ -4,7 +4,8 @@ namespace DIO.Series
 {
     class Program
     {   
-
+        
+    
         static RepositorySerie repository = new RepositorySerie();
 
         static void Main(string[] args)
@@ -82,12 +83,12 @@ namespace DIO.Series
             int idSerie = int.Parse(Console.ReadLine());
 
 
-            foreach (int i in Enum.GetValues(typeof(Genre)))
+            foreach (int i in Enum.GetValues(typeof(Categories)))
             {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genre), i));
+                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Categories), i));
             }
             Console.Write("Digite o tipo de matricula: ");
-            int inputGenre = int.Parse(Console.ReadLine());
+            int inputCategorie = int.Parse(Console.ReadLine());
 
             Console.Write("Digite o seu nome: ");
             string inputTitle = Console.ReadLine();
@@ -102,7 +103,7 @@ namespace DIO.Series
             string inputAddress = Console.ReadLine();
 
             Serie UpdateSeries = new Serie(id: idSerie,
-                                        genre: (Genre)inputGenre,
+                                        categories: (Categories)inputCategorie,
                                         title: inputTitle,
                                         year: inputRelease,
                                         description: inputDescription,
@@ -136,13 +137,13 @@ namespace DIO.Series
         {
             Console.WriteLine("Matricular novo(a) aluno(a)");
 
-            foreach (int i in Enum.GetValues(typeof(Genre)))
+            foreach (int i in Enum.GetValues(typeof(Categories)))
             {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genre), i));
+                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Categories), i));
             }
 
             Console.Write("Escolha o tipo de matricula: ");
-            int inputGenre = int.Parse(Console.ReadLine());
+            int inputCategorie = int.Parse(Console.ReadLine());
 
             Console.Write("Digite o seu nome: ");
             string inputTitle = Console.ReadLine();
@@ -157,7 +158,7 @@ namespace DIO.Series
             string inputAddress = Console.ReadLine();
 
             Serie newSerie = new Serie(id: repository.NextId(),
-                                       genre: (Genre)inputGenre,
+                                       categories: (Categories)inputCategorie,
                                        title: inputTitle,
                                        year: year,
                                        description: inputDescription,

@@ -2,11 +2,11 @@ using System;
 
 namespace DIO.Series
 {   
-    // Serie herdando do BaseEntities
+
     public class Serie : BaseEntities
     {
         // Attributes 
-        private Genre Genre { get; set; }
+        private Categories Categories { get; set; }
         private string Title { get; set; }
         private string Description { get; set; }
         private int Year { get; set; }
@@ -15,10 +15,10 @@ namespace DIO.Series
         private string Address { get; set; }
 
         // Methods 
-        public Serie(int id, Genre genre, string title, string description, int year, string address)
+        public Serie(int id, Categories categories, string title, string description, int year, string address)
         {
             this.Id = id; 
-            this.Genre = genre;
+            this.Categories = categories;
             this.Title = title;
             this.Description = description;
             this.Year = year;
@@ -30,13 +30,14 @@ namespace DIO.Series
 
         public override string ToString()
         {
-            // Environment.NewLine https://docs.microsoft.com/en-us/dotnet/api/system.environment.newline?view=netcore-3.1
+            
+            // string returning = System.Console.WriteLine($"Categorie: {this.Categorie} \r\n Title: {this.Title} \r\n Description: {this.Description} \r\n Start Year: {this.Year} \r\n Erased: {this.Erased}");
             string returning = "";
-            returning += "Genre: " + this.Genre; 
-            returning += "Title: " + this.Title;
-            returning += "Description: " + this.Description;
-            returning += "Start Year: " + this.Year;
-            returning += "Erased: " + this.Erased;
+            returning += $"Categorie: {this.Categories}\r\n"; 
+            returning += $"Title: {this.Title}\r\n";
+            returning += $"Description: {this.Description}\r\n";
+            returning += $"Start Year: {this.Year}\r\n";
+            returning += $"Erased: {this.Erased}\r\n";
             return returning;
         }
 
