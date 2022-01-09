@@ -12,8 +12,10 @@ namespace DIO.Series
         private int Year { get; set; }
         private bool Erased {get; set;}
 
+        private string Address { get; set; }
+
         // Methods 
-        public Serie(int id, Genre genre, string title, string description, int year)
+        public Serie(int id, Genre genre, string title, string description, int year, string address)
         {
             this.Id = id; 
             this.Genre = genre;
@@ -21,6 +23,7 @@ namespace DIO.Series
             this.Description = description;
             this.Year = year;
             this.Erased = false;
+            this.Address = address;
         }
         
         // To String 
