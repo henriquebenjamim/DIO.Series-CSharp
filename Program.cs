@@ -42,17 +42,17 @@ namespace DIO.Series
 
             }
 
-            Console.WriteLine("Thanks to user ur services! :)");
+            Console.WriteLine("Obrigado por usar vossos serviços :)");
             Console.ReadLine();
         }
 
 
         private static void EraseSeries()
         {
-            Console.Write("Type id serie to remove:");
+            Console.Write("Digite o id do matriculado que deseja remover:");
             int idSerie = int.Parse(Console.ReadLine());
 
-            Console.Write("Are u sure about that? 1 to agree 0 to decline");
+            Console.Write("Está seguro disso? 1 para 'SIM' 0 para 'NAO'");
             int answ = int.Parse(Console.ReadLine());
 
             if (answ == 1) {
@@ -60,15 +60,15 @@ namespace DIO.Series
             }
             else 
             { 
-                Console.Write("Canceled");
+                Console.Write("Removido");
             }
             //repository.Erase(idSerie);
-            Console.Write("Sucess!");
+            Console.Write("Concluído!");
         }
 
         private static void ViewSeries()
         {
-            Console.WriteLine("Type series id to visualize: ");
+            Console.WriteLine("Digite o id do matriculado: ");
             int idSerie =   int.Parse(Console.ReadLine());
 
             var serie = repository.ReturningById(idSerie);
@@ -78,7 +78,7 @@ namespace DIO.Series
 
         private static void UpdateSeries()
         {
-            Console.Write("Type id serie: ");
+            Console.Write("Digite o id do matriculado: ");
             int idSerie = int.Parse(Console.ReadLine());
 
 
@@ -86,23 +86,27 @@ namespace DIO.Series
             {
                 Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genre), i));
             }
-            Console.Write("Type a genre: ");
+            Console.Write("Digite o tipo de matricula: ");
             int inputGenre = int.Parse(Console.ReadLine());
 
-            Console.Write("Type series title: ");
+            Console.Write("Digite o seu nome: ");
             string inputTitle = Console.ReadLine();
 
-            Console.Write("Type the series release year: ");
+            Console.Write("Data de nascimento: ");
             int inputRelease = int.Parse(Console.ReadLine());
 
-            Console.Write("Type series description: ");
+            Console.Write("CPF: ");
             string inputDescription = Console.ReadLine();
+
+            Console.WriteLine("Endereço: ");
+            string inputAddress = Console.ReadLine();
 
             Serie UpdateSeries = new Serie(id: idSerie,
                                         genre: (Genre)inputGenre,
                                         title: inputTitle,
                                         year: inputRelease,
-                                        description: inputDescription);
+                                        description: inputDescription,
+                                        address: inputAddress);
             
             repository.Update(idSerie, UpdateSeries);
 
@@ -110,13 +114,13 @@ namespace DIO.Series
 
         private static void ListingSeries()
         {
-            Console.WriteLine("Listing Series..");
+            Console.WriteLine("Listando alunos(as)...");
 
             var listt = repository.Listing();
 
             if (listt.Count == 0)
             {
-                Console.WriteLine("Any serie subscribed.");
+                Console.WriteLine("Nenhum matriculado.");
                 return;
             }
 
@@ -124,36 +128,40 @@ namespace DIO.Series
             {   
                 var erased = serie.returnErased();
                 
-                Console.WriteLine("#ID {0}: - {1} - {2}", serie.returningId(), serie.returningTitle(), (erased ? "*Erased-" : ""));
+                Console.WriteLine("#ID {0}: - {1} - {2}", serie.returningId(), serie.returningTitle(), (erased ? "*Removido(a)-" : ""));
             }
         }
 
         private static void InsertSeries()
         {
-            Console.WriteLine("Add a new one");
+            Console.WriteLine("Matricular novo(a) aluno(a)");
 
             foreach (int i in Enum.GetValues(typeof(Genre)))
             {
                 Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genre), i));
             }
 
-            Console.Write("Type a genre (between the options): ");
+            Console.Write("Escolha o tipo de matricula: ");
             int inputGenre = int.Parse(Console.ReadLine());
 
-            Console.Write("Type the serie title: ");
+            Console.Write("Digite o seu nome: ");
             string inputTitle = Console.ReadLine();
 
-            Console.Write("Type the release year of the serie: ");
+            Console.Write("Data de nascimento: ");
             int year = int.Parse(Console.ReadLine());
 
-            Console.Write("Type the serie description: ");
+            Console.Write("CPF: ");
             string inputDescription = Console.ReadLine();
+
+            Console.WriteLine("Endereço: ");
+            string inputAddress = Console.ReadLine();
 
             Serie newSerie = new Serie(id: repository.NextId(),
                                        genre: (Genre)inputGenre,
                                        title: inputTitle,
                                        year: year,
-                                       description: inputDescription);   
+                                       description: inputDescription,
+                                       address: inputAddress);   
 
             repository.Insert(newSerie);
         }
@@ -163,17 +171,19 @@ namespace DIO.Series
         {
             Console.WriteLine();
             Console.WriteLine("-----------------------------");
-            Console.WriteLine("-=- Welcome to DIO SERIES -=-");
-            Console.WriteLine("¨¨¨¨¨ W u want to do? ¨¨¨¨¨¨¨");
+            Console.WriteLine("-=- Bem vindo(a) a academia da DIO -=-");
+            Console.WriteLine("¨¨¨¨¨ O que deseja? ¨¨¨¨¨¨¨");
             Console.WriteLine("");
             
-            Console.WriteLine("1 - Listing Series");
-            Console.WriteLine("2 - Add a new one");
-            Console.WriteLine("3 - Update Series");
-            Console.WriteLine("4 - Erase Serie");
-            Console.WriteLine("5 - Visualize Serie");
-            Console.WriteLine("C - Screen Clean");
-            Console.WriteLine("X - Exit");
+            Console.WriteLine("1 - Listar alunos(as)");
+            Console.WriteLine("2 - Matricular novo(a) aluno(a)");
+            Console.WriteLine("3 - Atualizar matricula");
+            Console.WriteLine("4 - Deletar aluno");
+            Console.WriteLine("5 - Visualizar matricula");
+            Console.WriteLine("6 - Suspender matricula");
+            Console.WriteLine("C - Limpar tela");
+            Console.WriteLine("X - Sair");
+            Console.WriteLine();
 
             string userOption = Console.ReadLine().ToUpper();
             Console.WriteLine();
