@@ -17,19 +17,19 @@ namespace DIO.Series
                 switch (userOption)
                 {
                     case "1":
-                        ListingSeries();
+                        ListingPeople();
                         break;
                     case "2":
-                        InsertSeries();
+                        InsertPeople();
                         break;
                     case "3":
-                        UpdateSeries();
+                        UpdateInformation();
                         break;
                     case "4":
-                        EraseSeries();
+                        ErasePerson();
                         break;
                     case "5":
-                        ViewSeries();
+                        ViewPerson();
                         break;
                     case "C":
                         Console.Clear();
@@ -48,16 +48,16 @@ namespace DIO.Series
         }
 
 
-        private static void EraseSeries()
+        private static void ErasePerson()
         {
             Console.Write("Digite o id do matriculado que deseja remover:");
-            int idSerie = int.Parse(Console.ReadLine());
+            int idPerson = int.Parse(Console.ReadLine());
 
             Console.Write("Está seguro disso? 1 para 'SIM' 0 para 'NAO'");
             int answ = int.Parse(Console.ReadLine());
 
             if (answ == 1) {
-                repository.Erase(idSerie);
+                repository.Erase(idPerson);
             }
             else 
             { 
@@ -67,20 +67,20 @@ namespace DIO.Series
             Console.Write("Concluído!");
         }
 
-        private static void ViewSeries()
+        private static void ViewPerson()
         {
             Console.WriteLine("Digite o id do matriculado: ");
-            int idSerie =   int.Parse(Console.ReadLine());
+            int idPerson =   int.Parse(Console.ReadLine());
 
-            var serie = repository.ReturningById(idSerie);
+            var person = repository.ReturningById(idPerson);
 
-            Console.WriteLine(serie);
+            Console.WriteLine(person);
         }
 
-        private static void UpdateSeries()
+        private static void UpdateInformation()
         {
             Console.Write("Digite o id do matriculado: ");
-            int idSerie = int.Parse(Console.ReadLine());
+            int idPerson = int.Parse(Console.ReadLine());
 
 
             foreach (int i in Enum.GetValues(typeof(Categories)))
@@ -91,29 +91,29 @@ namespace DIO.Series
             int inputCategorie = int.Parse(Console.ReadLine());
 
             Console.Write("Digite o seu nome: ");
-            string inputTitle = Console.ReadLine();
+            string inputName = Console.ReadLine();
 
             Console.Write("Data de nascimento: ");
-            int inputRelease = int.Parse(Console.ReadLine());
+            string birthdayYear = Console.ReadLine();
 
             Console.Write("CPF: ");
-            string inputDescription = Console.ReadLine();
+            string inputPPC = Console.ReadLine();
 
             Console.WriteLine("Endereço: ");
             string inputAddress = Console.ReadLine();
 
-            Serie UpdateSeries = new Serie(id: idSerie,
+            Serie UpdateInformation = new Serie(id: idPerson,
                                         categories: (Categories)inputCategorie,
-                                        title: inputTitle,
-                                        year: inputRelease,
-                                        description: inputDescription,
+                                        title: inputName,
+                                        year: birthdayYear,
+                                        description: inputPPC,
                                         address: inputAddress);
             
-            repository.Update(idSerie, UpdateSeries);
+            repository.Update(idPerson, UpdateInformation);
 
         }
 
-        private static void ListingSeries()
+        private static void ListingPeople()
         {
             Console.WriteLine("Listando alunos(as)...");
 
@@ -133,7 +133,7 @@ namespace DIO.Series
             }
         }
 
-        private static void InsertSeries()
+        private static void InsertPeople()
         {
             Console.WriteLine("Matricular novo(a) aluno(a)");
 
@@ -146,22 +146,22 @@ namespace DIO.Series
             int inputCategorie = int.Parse(Console.ReadLine());
 
             Console.Write("Digite o seu nome: ");
-            string inputTitle = Console.ReadLine();
+            string inputName = Console.ReadLine();
 
             Console.Write("Data de nascimento: ");
-            int year = int.Parse(Console.ReadLine());
+            string birthdayDate = Console.ReadLine();
 
             Console.Write("CPF: ");
-            string inputDescription = Console.ReadLine();
+            string inputPPC = Console.ReadLine();
 
             Console.WriteLine("Endereço: ");
             string inputAddress = Console.ReadLine();
 
             Serie newSerie = new Serie(id: repository.NextId(),
                                        categories: (Categories)inputCategorie,
-                                       title: inputTitle,
-                                       year: year,
-                                       description: inputDescription,
+                                       title: inputName,
+                                       year: birthdayDate,
+                                       description: inputPPC,
                                        address: inputAddress);   
 
             repository.Insert(newSerie);

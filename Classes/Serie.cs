@@ -9,13 +9,13 @@ namespace DIO.Series
         private Categories Categories { get; set; }
         private string Title { get; set; }
         private string Description { get; set; }
-        private int Year { get; set; }
+        private string Year { get; set; }
         private bool Erased {get; set;}
 
         private string Address { get; set; }
 
         // Methods 
-        public Serie(int id, Categories categories, string title, string description, int year, string address)
+        public Serie(int id, Categories categories, string title, string description, string year, string address)
         {
             this.Id = id; 
             this.Categories = categories;
