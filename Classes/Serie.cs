@@ -1,5 +1,5 @@
 using System;
-
+//domain
 namespace DIO.Series
 {   
 
