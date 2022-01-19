@@ -4,12 +4,12 @@ namespace DIO.Series
     public enum Categories
     {
         Musculacao = 1, 
-        Dance = 2,
+        Danca = 2,
         Natacao = 3,
-        MusculacaoDance = 4, 
+        MusculacaoDanca = 4, 
         MusucalacaoNatacao = 5, 
-        DanceNatacao = 6,
-        MusculacaoDanceNatacao = 7
+        DancaNatacao = 6,
+        MusculacaoDancaNatacao = 7
           
     }
 }

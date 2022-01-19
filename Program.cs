@@ -5,8 +5,7 @@ namespace DIO.Series
     class Program
     {   
         
-    
-        static RepositorySerie repository = new RepositorySerie();
+        static RepositoryPerson repository = new RepositoryPerson();
 
         static void Main(string[] args)
         {   
@@ -30,6 +29,9 @@ namespace DIO.Series
                         break;
                     case "5":
                         ViewPerson();
+                        break;
+                    case "6":
+                        //FreezePerson();
                         break;
                     case "C":
                         Console.Clear();
@@ -102,11 +104,11 @@ namespace DIO.Series
             Console.WriteLine("Endereço: ");
             string inputAddress = Console.ReadLine();
 
-            Serie UpdateInformation = new Serie(id: idPerson,
+            Person UpdateInformation = new Person(id: idPerson,
                                         categories: (Categories)inputCategorie,
-                                        title: inputName,
-                                        year: birthdayYear,
-                                        description: inputPPC,
+                                        name: inputName,
+                                        birthdayYear: birthdayYear,
+                                        cpf: inputPPC,
                                         address: inputAddress);
             
             repository.Update(idPerson, UpdateInformation);
@@ -129,7 +131,7 @@ namespace DIO.Series
             {   
                 var erased = serie.returnErased();
                 
-                Console.WriteLine("#ID {0}: - {1} - {2}", serie.returningId(), serie.returningTitle(), (erased ? "*Removido(a)-" : ""));
+                Console.WriteLine("#ID {0}: - {1} - {2}", serie.returningId(), serie.returningName(), (erased ? "*Removido(a)-" : ""));
             }
         }
 
@@ -149,7 +151,7 @@ namespace DIO.Series
             string inputName = Console.ReadLine();
 
             Console.Write("Data de nascimento: ");
-            string birthdayDate = Console.ReadLine();
+            string birthdayYear = Console.ReadLine();
 
             Console.Write("CPF: ");
             string inputPPC = Console.ReadLine();
@@ -157,14 +159,14 @@ namespace DIO.Series
             Console.WriteLine("Endereço: ");
             string inputAddress = Console.ReadLine();
 
-            Serie newSerie = new Serie(id: repository.NextId(),
+            Person newPerson = new Person(id: repository.NextId(),
                                        categories: (Categories)inputCategorie,
-                                       title: inputName,
-                                       year: birthdayDate,
-                                       description: inputPPC,
+                                       name: inputName,
+                                       birthdayYear: birthdayYear,
+                                       cpf: inputPPC,
                                        address: inputAddress);   
 
-            repository.Insert(newSerie);
+            repository.Insert(newPerson);
         }
 
 
