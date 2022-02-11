@@ -15,6 +15,10 @@ namespace DIO.Series
 
         private string Address { get; set; }
 
+        public Person()
+        {
+        }
+
         // Methods 
         public Person(int id, Categories categories, string name, string cpf, string birthdayYear, string address)
         {

@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DIO.Series-CSharp\\DIO.Series-CSharp\\DIO.Series.csproj": {}
+    "C:\\DIO.Series-CSharp\\DIO.Series.csproj": {}
   },
   "projects": {
-    "C:\\DIO.Series-CSharp\\DIO.Series-CSharp\\DIO.Series.csproj": {
+    "C:\\DIO.Series-CSharp\\DIO.Series.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DIO.Series-CSharp\\DIO.Series-CSharp\\DIO.Series.csproj",
+        "projectUniqueName": "C:\\DIO.Series-CSharp\\DIO.Series.csproj",
         "projectName": "DIO.Series",
-        "projectPath": "C:\\DIO.Series-CSharp\\DIO.Series-CSharp\\DIO.Series.csproj",
-        "packagesPath": "C:\\Users\\Riquinho\\.nuget\\packages\\",
-        "outputPath": "C:\\DIO.Series-CSharp\\DIO.Series-CSharp\\obj\\",
+        "projectPath": "C:\\DIO.Series-CSharp\\DIO.Series.csproj",
+        "packagesPath": "C:\\Users\\Henrique\\.nuget\\packages\\",
+        "outputPath": "C:\\DIO.Series-CSharp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Riquinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Henrique\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -59,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
